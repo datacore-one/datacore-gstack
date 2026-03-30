@@ -45,8 +45,10 @@ provides:
 hooks:
   post_install: |
     if [ ! -d "${HOME}/.claude/skills/gstack" ]; then
-      echo "WARNING: gstack not found at ~/.claude/skills/gstack/"
-      echo "Install it: git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup"
+      echo "gstack not found. Installing..."
+      git clone https://github.com/garrytan/gstack.git "${HOME}/.claude/skills/gstack"
+      cd "${HOME}/.claude/skills/gstack" && ./setup
+      cd -
     else
       echo "gstack detected at ~/.claude/skills/gstack/ ($(cat ${HOME}/.claude/skills/gstack/VERSION 2>/dev/null || echo 'unknown version'))"
     fi

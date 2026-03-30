@@ -28,15 +28,11 @@ Adds persistent memory, autonomous quality gates, enriched retros, and a sprint 
 ## Install
 
 ```bash
-# Install gstack first (if not already)
-git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack
-cd ~/.claude/skills/gstack && ./setup
-
-# Copy this module into your Datacore
-cp -r . ~/.datacore/modules/gstack/
-# Or clone directly:
+# Clone into your Datacore modules directory
 git clone https://github.com/datacore-one/datacore-gstack .datacore/modules/gstack
 ```
+
+The post-install hook automatically clones and sets up gstack if not already installed.
 
 ## Engram Pack: garry-tan-v1
 
