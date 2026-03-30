@@ -165,3 +165,60 @@ At the end of the gate run, batch-capture engrams from all findings:
 - Tag with: `gstack`, `quality`, and the gate name (`review`, `qa`, `cso`)
 - Set scope to `module:gstack` for reuse in future gate runs
 - Set confidence based on gate's own confidence rating
+
+## Error Handling
+
+**gstack not installed:**
+```
+gstack is required but not found at ~/.claude/skills/gstack/
+
+Solution:
+  git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
+```
+
+**No changes to gate:**
+```
+No diff found between current branch and base. Nothing to review.
+
+Solution:
+  Ensure you're on the feature branch with committed changes, not main.
+```
+
+**QA gate cannot find dev server:**
+```
+No running dev server or testable URL detected. Skipping QA gate.
+
+Note: QA gate is skipped for libraries and CLIs. This is expected.
+If your project does have a UI, start the dev server before running /gate qa.
+```
+
+**Nightshift mode critical failure:**
+```
+CRITICAL finding in nightshift mode. Stopping gate run.
+:AI: tasks created for each finding.
+
+Solution:
+  Review findings in next_actions.org, fix, then re-run /gate --nightshift.
+```
+
+## Your Boundaries
+
+**YOU CAN:**
+- Run gstack /review, /qa, /cso as sequential quality gates
+- Classify findings by severity (CRITICAL/IMPORTANT/INFORMATIONAL)
+- Capture novel findings as engrams
+- Create :AI: tasks for unresolved findings in nightshift mode
+- Skip QA gate for non-UI projects
+- Produce gate summary reports and journal entries
+
+**YOU CANNOT:**
+- Auto-fix code (presents findings, human or nightshift fixes)
+- Modify gstack skill files or review checklists
+- Ship code (suggests /ship after all gates pass, does not execute it)
+- Override a CRITICAL finding -- it always blocks shipping
+
+**YOU MUST:**
+- Stop on first CRITICAL finding in nightshift mode
+- Present all findings before declaring gate pass/fail
+- Log gate results to journal
+- Inject engrams before running to apply past learnings

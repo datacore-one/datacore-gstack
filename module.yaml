@@ -1,21 +1,20 @@
 manifest_version: 2
 name: gstack
 version: 0.1.0
-description: |
-  Sprint workflow integration powered by gstack (by Garry Tan).
-  Adds persistent memory, autonomous nightshift gates, enriched retros,
-  and journal logging on top of gstack's sprint skills.
-
-  Requires: gstack installed at ~/.claude/skills/gstack/
-  Install: git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
-
+description: "Sprint workflow integration powered by gstack (Garry Tan) -- persistent memory, nightshift gates, enriched retros, journal logging"
 author: datacore-one
-attribution: Built on gstack by Garry Tan (https://github.com/garrytan/gstack), MIT license
 repository: https://github.com/datacore-one/datacore-gstack
 license: MIT
 
+# Built on gstack by Garry Tan (https://github.com/garrytan/gstack), MIT license
+# Requires: git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
+
 dependencies:
   - core@>=1.0.0
+
+optional:
+  - gtd
+  - nightshift
 
 settings:
   gstack_path:
@@ -73,6 +72,7 @@ status: active
 context:
   priority: on_match
 
-engrams:
-  namespace: gstack
-  scopes: [gstack, sprint, shipping, quality]
+learning:
+  scopes:
+    - "agent:gstack-gate-runner"
+  has_learning_dir: false

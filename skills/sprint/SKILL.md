@@ -158,3 +158,51 @@ At each phase transition, evaluate whether any insights should become engrams:
 - Shipping patterns (from retro) -> behavioral engrams
 
 Use `datacore.learn` for immediate captures. Tag all with `gstack` and `sprint`.
+
+## Error Handling
+
+**gstack not installed:**
+```
+gstack is required but not found at ~/.claude/skills/gstack/
+
+Solution:
+  git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
+```
+
+**Gate failure during Phase 4:**
+```
+Quality gate failed: {gate} reported CRITICAL findings.
+
+Solution:
+  Fix the findings listed above, then resume with "/sprint" (auto-detects Phase 4).
+```
+
+**Sprint tracking file corrupt or missing mid-sprint:**
+```
+Sprint tracking file .gstack-sprint.md is missing or unreadable.
+
+Solution:
+  Start a fresh sprint with "/sprint" -- it will detect the branch state
+  and offer to resume at the appropriate phase.
+```
+
+## Your Boundaries
+
+**YOU CAN:**
+- Orchestrate gstack skills in sequence with Datacore plumbing between phases
+- Capture engrams from sprint insights at each phase transition
+- Write sprint tracking and journal entries
+- Create :AI: tasks or GitHub issues from planning phase output
+- Resume an in-progress sprint from any phase
+
+**YOU CANNOT:**
+- Modify gstack skill files or gstack state directly
+- Ship without running quality gates (Phase 4 is mandatory before Phase 5)
+- Skip user confirmation for shipping in interactive mode
+- Replace existing Datacore skills (brainstorming, code-review, systematic-debugging)
+
+**YOU MUST:**
+- Check gstack is installed before starting
+- Inject engrams at sprint start for relevant context
+- Log to journal at each phase transition
+- Present gate findings to user before proceeding to ship

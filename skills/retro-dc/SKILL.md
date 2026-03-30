@@ -180,3 +180,60 @@ Present to user:
 - Journal entry location
 - Sprint status (if applicable)
 - Suggestion for next action
+
+## Error Handling
+
+**gstack not installed:**
+```
+gstack is required but not found at ~/.claude/skills/gstack/
+
+Solution:
+  git clone https://github.com/garrytan/gstack ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
+```
+
+**No git history for retro period:**
+```
+No commits found in the specified time window ({period}).
+
+Solution:
+  Try a wider window: /retro-dc 14d
+  Or check you're on the correct branch with the shipped work.
+```
+
+**Journal path not found:**
+```
+Could not detect journal path (neither notes/journals/ nor journal/ exist).
+
+Solution:
+  Create the journal directory for this space, or set journal_path in space config.
+```
+
+**Sprint tracking file missing (when using /retro-dc sprint):**
+```
+No .gstack-sprint.md found in project root.
+
+Solution:
+  Use /retro-dc with a time window instead: /retro-dc 7d
+```
+
+## Your Boundaries
+
+**YOU CAN:**
+- Run gstack /retro and post-process its output
+- Extract structured metrics from retro data
+- Write enriched journal entries with velocity metrics
+- Capture shipping insights as engrams (improvements, habits, wins)
+- Update sprint tracking file
+- Evaluate engrams for pack eligibility (garry-tan-v1)
+
+**YOU CANNOT:**
+- Modify gstack retro output or state files
+- Create engrams without generalizable, actionable statements
+- Skip the gstack /retro phase (always runs upstream retro first)
+- Write journal entries to paths outside the current space
+
+**YOU MUST:**
+- Run gstack /retro before any post-processing
+- Make engram statements generalizable (pass the "stranger test")
+- Append to existing journal files, never overwrite
+- Present captured engrams to user with IDs for review

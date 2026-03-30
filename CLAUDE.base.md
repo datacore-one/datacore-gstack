@@ -1,7 +1,5 @@
 ---
-module: gstack
-version: 0.1.0
-summary: Sprint workflow integration powered by gstack (by Garry Tan) with persistent memory, nightshift gates, and enriched retros
+summary: Sprint workflow integration powered by gstack (Garry Tan) with persistent memory, nightshift gates, and enriched retros
 triggers: ["sprint", "code review", "qa", "quality gate", "security audit", "retro", "ship", "investigate", "office hours", "gstack"]
 context: on_match
 ---
@@ -65,3 +63,7 @@ cd ~/.claude/skills/gstack && ./setup
 - Does NOT replace existing Datacore skills (brainstorming, code-review, systematic-debugging). Runs alongside them.
 - Does NOT bundle gstack. It is a runtime dependency.
 - gstack updates independently via `cd ~/.claude/skills/gstack && git pull`.
+
+---
+
+*This file covers structure, capability, and stable configuration. Learned behavior, user corrections, and operational preferences live as engrams -- call `datacore.recall` with scope `module:gstack` for those.*
