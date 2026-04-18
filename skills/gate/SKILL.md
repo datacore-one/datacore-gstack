@@ -47,7 +47,7 @@ If no diff against base branch, stop: "No changes to gate. Nothing to review."
 Before running gates, inject relevant learnings:
 
 ```
-Call datacore.inject with scope=module:gstack
+Call plur_inject_hybrid with scope=module:gstack
 ```
 
 This loads past review findings, QA bug patterns, and security issues from previous
@@ -161,7 +161,7 @@ Overall: {PASS|FAIL}
 ## Engram Capture
 
 At the end of the gate run, batch-capture engrams from all findings:
-- Use `datacore.learn` for each novel pattern
+- Use `plur_learn` for each novel pattern
 - Tag with: `gstack`, `quality`, and the gate name (`review`, `qa`, `cso`)
 - Set scope to `module:gstack` for reuse in future gate runs
 - Set confidence based on gate's own confidence rating

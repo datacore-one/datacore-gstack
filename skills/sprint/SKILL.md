@@ -42,7 +42,7 @@ Ask the user what they want to build. Determine the sprint mode:
 
 Inject relevant engrams before starting:
 ```
-Call datacore.inject with scope=module:gstack to load shipping patterns and past sprint learnings.
+Call plur_inject_hybrid with scope=module:gstack to load shipping patterns and past sprint learnings.
 ```
 
 Create a sprint tracking file:
@@ -157,7 +157,7 @@ At each phase transition, evaluate whether any insights should become engrams:
 - Bug patterns (from QA/review) -> procedural engrams
 - Shipping patterns (from retro) -> behavioral engrams
 
-Use `datacore.learn` for immediate captures. Tag all with `gstack` and `sprint`.
+Use `plur_learn` for immediate captures. Tag all with `gstack` and `sprint`.
 
 ## Error Handling
 

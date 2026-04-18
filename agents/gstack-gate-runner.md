@@ -33,13 +33,13 @@ engrams from findings, and determines if the build is ship-ready.
 ## Workflow
 
 1. Verify gstack is installed and branch has changes vs base
-2. Inject engrams: `datacore.inject scope=module:gstack`
+2. Inject engrams: `plur_inject_hybrid scope=module:gstack`
 3. Run each gate in sequence:
    a. `/review` -- code review with scope drift detection
    b. `/qa` -- browser QA (skipped if no UI/URL)
    c. `/cso` -- security audit
 4. Collect results from each gate
-5. Capture novel findings as engrams via `datacore.learn`
+5. Capture novel findings as engrams via `plur_learn`
 6. Produce gate summary report
 7. In nightshift mode:
    - All pass: mark task DONE, optionally proceed to ship

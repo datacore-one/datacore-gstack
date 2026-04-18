@@ -66,4 +66,4 @@ cd ~/.claude/skills/gstack && ./setup
 
 ---
 
-*This file covers structure, capability, and stable configuration. Learned behavior, user corrections, and operational preferences live as engrams -- call `datacore.recall` with scope `module:gstack` for those.*
+*This file covers structure, capability, and stable configuration. Learned behavior, user corrections, and operational preferences live as engrams -- call `plur_recall_hybrid` with scope `module:gstack` for those.*

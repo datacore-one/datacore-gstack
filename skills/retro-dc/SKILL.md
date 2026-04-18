@@ -142,7 +142,7 @@ For each improvement, habit, and notable pattern, create an engram candidate:
 - Confidence: 8 (observed)
 - Tag: `gstack`, `retro`, `quality`
 
-Use `datacore.learn` for each engram. The statement should be:
+Use `plur_learn` for each engram. The statement should be:
 - **Generalizable**: not "we fixed the auth bug" but "auth redirects after session expiry need explicit handling in SPA middleware"
 - **Actionable**: something a future sprint can apply
 - **Testable**: can verify if the pattern was followed
