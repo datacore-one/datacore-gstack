@@ -47,7 +47,7 @@ If no diff against base branch, stop: "No changes to gate. Nothing to review."
 Before running gates, inject relevant learnings:
 
 ```
-Call plur_inject_hybrid with scope=module:gstack
+Call plur_admin with action="plur_inject_hybrid", scope=module:gstack
 ```
 
 This loads past review findings, QA bug patterns, and security issues from previous

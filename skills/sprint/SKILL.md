@@ -42,7 +42,7 @@ Ask the user what they want to build. Determine the sprint mode:
 
 Inject relevant engrams before starting:
 ```
-Call plur_inject_hybrid with scope=module:gstack to load shipping patterns and past sprint learnings.
+Call plur_admin with action="plur_inject_hybrid", scope=module:gstack to load shipping patterns and past sprint learnings.
 ```
 
 Create a sprint tracking file:

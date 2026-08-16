@@ -33,7 +33,7 @@ engrams from findings, and determines if the build is ship-ready.
 ## Workflow
 
 1. Verify gstack is installed and branch has changes vs base
-2. Inject engrams: `plur_inject_hybrid scope=module:gstack`
+2. Inject engrams: `plur_admin` with `action` = `"plur_inject_hybrid"`, scope=module:gstack`
 3. Run each gate in sequence:
    a. `/review` -- code review with scope drift detection
    b. `/qa` -- browser QA (skipped if no UI/URL)
