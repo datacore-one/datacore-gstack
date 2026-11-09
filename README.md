@@ -32,7 +32,30 @@ Adds persistent memory, autonomous quality gates, enriched retros, and a sprint 
 git clone https://github.com/datacore-one/datacore-gstack .datacore/modules/gstack
 ```
 
-The post-install hook automatically clones and sets up gstack if not already installed.
+## Setup
+
+Nothing runs these steps automatically; do them once after cloning.
+
+1. Install gstack if `~/.claude/skills/gstack/` does not exist yet:
+
+   ```bash
+   git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
+   cd ~/.claude/skills/gstack && ./setup && cd -
+   ```
+
+2. Link this module's skills into Claude Code, from the module directory
+   (`.datacore/modules/gstack`). Each `skills/<name>/` becomes
+   `~/.claude/skills/gstack-dc:<name>`; existing links are left alone:
+
+   ```bash
+   for skill_dir in skills/*/; do
+     skill_name=$(basename "$skill_dir")
+     target="$HOME/.claude/skills/gstack-dc:$skill_name"
+     [ -e "$target" ] || ln -s "$(pwd)/$skill_dir" "$target"
+   done
+   ```
+
+Then use `/sprint`, `/retro-dc` or `/gate`.
 
 ## Engram Pack: garry-tan-v1
 

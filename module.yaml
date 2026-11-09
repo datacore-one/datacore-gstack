@@ -41,26 +41,6 @@ provides:
   agents:
     - gstack-gate-runner
 
-hooks:
-  post_install: |
-    if [ ! -d "${HOME}/.claude/skills/gstack" ]; then
-      echo "gstack not found. Installing..."
-      git clone https://github.com/garrytan/gstack.git "${HOME}/.claude/skills/gstack"
-      cd "${HOME}/.claude/skills/gstack" && ./setup
-      cd -
-    else
-      echo "gstack detected at ~/.claude/skills/gstack/ ($(cat ${HOME}/.claude/skills/gstack/VERSION 2>/dev/null || echo 'unknown version'))"
-    fi
-    for skill_dir in skills/*/; do
-      skill_name=$(basename "$skill_dir")
-      target="$HOME/.claude/skills/gstack-dc:$skill_name"
-      if [ ! -e "$target" ]; then
-        ln -s "$(pwd)/$skill_dir" "$target"
-        echo "  Skill linked: gstack-dc:$skill_name"
-      fi
-    done
-    echo "Datacore gstack module installed. Use /sprint, /retro-dc, or /gate."
-
 use_cases:
   - Sprint workflow with persistent memory and quality gates
   - Autonomous nightshift code review, QA, and security audit
